@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import altair as alt
+# import altair as alt
 import plotly
 import os
 from dotenv import load_dotenv
@@ -33,10 +33,10 @@ for record in data2:
 
 chart_data2 = pd.DataFrame({'x': years, 'y': preps})
 
-st.altair_chart(alt.Chart(chart_data2).mark_line().encode(
-    x='x',
-    y='y'
-))
+# st.altair_chart(alt.Chart(chart_data2).mark_line().encode(
+#     x='x',
+#     y='y'
+# ))
 
 display = plotly.graph_objects.Figure(
         data=plotly.graph_objects.Bar(y=preps, x=years, 
@@ -52,10 +52,11 @@ option = st.selectbox(
 if (option == "Chart 1"):
     st.line_chart(chart_data, x="year", y="prep_num")
 elif (option == "Chart 2"):
-    st.altair_chart(alt.Chart(chart_data2).mark_line().encode(
-        x='x',
-        y='y'
-    ))
+    print("temporary")
+    # st.altair_chart(alt.Chart(chart_data2).mark_line().encode(
+    #     x='x',
+    #     y='y'
+    # ))
 
 if st.button("Home"):
     st.switch_page("index.py")
